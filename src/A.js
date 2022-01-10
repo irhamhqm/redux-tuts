@@ -1,24 +1,18 @@
 
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { incrementAction } from './actions';
 
-function A({ counter, increment }) {
+function A() {
+  const counter = useSelector((state) => state.counter);
+  const dispatch = useDispatch();
   return (
     <div>
       A<br />
       {counter}<br />
-      <button onClick={increment}>+</button>
+      <button onClick={() => { dispatch(incrementAction) }}>+</button>
     </div>
   )
 }
 
-const mapStateToProps = (state) => ({
-    counter: state.counter
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  increment: () => { dispatch(incrementAction) }
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(A);
+export default A;

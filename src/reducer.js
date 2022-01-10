@@ -9,12 +9,12 @@ export default function counterReducer(state = initialState, action) {
     case 'counter/increment':
       return {
         ...state,
-        counter: state.counter + 1
+        counter: 1 * state.counter + 1
       }
     case 'counter/decrement':
       return {
         ...state,
-        counter: state.counter - 1
+        counter: 1 * state.counter - 1
       }
     case 'counter/set-number':
       return {
